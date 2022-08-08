@@ -1,6 +1,6 @@
+import Threads.SocketThread;
+
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class ServerUI extends JFrame{
     private JPanel mainPanel;
@@ -22,11 +22,13 @@ public class ServerUI extends JFrame{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(mainPanel);
         this.pack();
-        openSocketButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        addOpenSocketListener();
+    }
 
-            }
+    private void addOpenSocketListener(){
+        openSocketButton.addActionListener(e -> {
+            SocketThread st = new SocketThread(socketStateLabel);
+            st.start();
         });
     }
 

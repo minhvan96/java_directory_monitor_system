@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e094155-9bd3-4da6-a859-3a81b7ebc57e" name="Changes" comment="FEAT: Add client UI">
-      <change afterPath="$PROJECT_DIR$/src/main/app-server/Threads/SocketThread.java" afterDir="false" />
+    <list default="true" id="2e094155-9bd3-4da6-a859-3a81b7ebc57e" name="Changes" comment="FEAT: Update server ui, init socket thread">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/app-client/ClientUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/app-client/ClientUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/app-server/ServerUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/app-server/ServerUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +72,7 @@
       <workItem from="1659868417797" duration="9546000" />
       <workItem from="1659898647000" duration="99000" />
       <workItem from="1659898764642" duration="305000" />
-      <workItem from="1659964268876" duration="213000" />
+      <workItem from="1659964268876" duration="535000" />
     </task>
     <task id="LOCAL-00001" summary="FEAT: ReInit">
       <created>1659462255024</created>
@@ -103,7 +102,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659871062842</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="FEAT: Update server ui, init socket thread">
+      <created>1659964597980</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1659964597980</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -125,6 +131,7 @@
     <MESSAGE value="FEAT: Init Server" />
     <MESSAGE value="FEAT: Init Client" />
     <MESSAGE value="FEAT: Add client UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="FEAT: Add client UI" />
+    <MESSAGE value="FEAT: Update server ui, init socket thread" />
+    <option name="LAST_COMMIT_MESSAGE" value="FEAT: Update server ui, init socket thread" />
   </component>
 </project>

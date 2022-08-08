@@ -65,7 +65,7 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="79c6f" class="javax.swing.JTable" binding="clientsListTable">
+                  <component id="79c6f" class="javax.swing.JTable" binding="clientsTable">
                     <constraints/>
                     <properties/>
                   </component>

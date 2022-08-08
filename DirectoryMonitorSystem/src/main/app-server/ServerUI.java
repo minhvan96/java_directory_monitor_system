@@ -1,4 +1,6 @@
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class ServerUI extends JFrame{
     private JPanel mainPanel;
@@ -12,12 +14,20 @@ public class ServerUI extends JFrame{
     private JLabel welcomeLabel;
     private JLabel clientsListLabel;
     private JLabel clientLogLabel;
+    private JLabel socketStateLabel;
+    private JButton openSocketButton;
 
     public ServerUI(String title) {
         super(title);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(mainPanel);
         this.pack();
+        openSocketButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
     }
 
     public static void main(String[] args){

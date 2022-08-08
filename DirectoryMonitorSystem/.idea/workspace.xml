@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e094155-9bd3-4da6-a859-3a81b7ebc57e" name="Changes" comment="FEAT: Init Client">
+    <list default="true" id="2e094155-9bd3-4da6-a859-3a81b7ebc57e" name="Changes" comment="FEAT: Add client UI">
+      <change afterPath="$PROJECT_DIR$/src/main/app-server/Threads/SocketThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/app-client/ClientUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/app-client/ClientUI.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/app-client/ClientUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/app-client/ClientUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/i18.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/i18.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +45,21 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
+  <component name="RunManager">
+    <configuration name="NewJFrame" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javaapplication1.NewJFrame" />
+      <module name="DirectoryMonitorSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="javaapplication1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -56,7 +70,10 @@
       <updated>1659461445065</updated>
       <workItem from="1659461446144" duration="2187000" />
       <workItem from="1659537040062" duration="2421000" />
-      <workItem from="1659868417797" duration="1003000" />
+      <workItem from="1659868417797" duration="9546000" />
+      <workItem from="1659898647000" duration="99000" />
+      <workItem from="1659898764642" duration="305000" />
+      <workItem from="1659964268876" duration="213000" />
     </task>
     <task id="LOCAL-00001" summary="FEAT: ReInit">
       <created>1659462255024</created>
@@ -79,7 +96,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659538920677</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="FEAT: Add client UI">
+      <created>1659871062842</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1659871062842</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,6 +124,7 @@
     <MESSAGE value="FEAT: ReInit" />
     <MESSAGE value="FEAT: Init Server" />
     <MESSAGE value="FEAT: Init Client" />
-    <option name="LAST_COMMIT_MESSAGE" value="FEAT: Init Client" />
+    <MESSAGE value="FEAT: Add client UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="FEAT: Add client UI" />
   </component>
 </project>

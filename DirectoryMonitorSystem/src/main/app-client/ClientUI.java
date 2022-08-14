@@ -1,4 +1,9 @@
 import javax.swing.*;
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.nio.channels.AsynchronousSocketChannel;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 public class ClientUI extends JFrame{
     private JPanel mainPanel;
@@ -14,6 +19,21 @@ public class ClientUI extends JFrame{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(mainPanel);
         this.pack();
+        connectToServerButton.addActionListener(e -> {
+            AsynchronousSocketChannel client = null;
+            try {
+                client = AsynchronousSocketChannel.open();
+                InetSocketAddress hostAddress = new InetSocketAddress("127.0.0.1", 1234);
+                Future<Void> future = client.connect(hostAddress);
+                future.get();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            } catch (ExecutionException ex) {
+                throw new RuntimeException(ex);
+            } catch (InterruptedException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
     }
 
     public static void main(String[] args){

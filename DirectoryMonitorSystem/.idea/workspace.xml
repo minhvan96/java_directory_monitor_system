@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e094155-9bd3-4da6-a859-3a81b7ebc57e" name="Changes" comment="FEAT: Init socket thread">
+    <list default="true" id="2e094155-9bd3-4da6-a859-3a81b7ebc57e" name="Changes" comment="FEAT: Init Clients table">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/app-client/ClientUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/app-client/ClientUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/app-server/ServerUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/app-server/ServerUI.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/app-server/ServerUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/app-server/ServerUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/app-server/Threads/SocketThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/app-server/Threads/SocketThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/app-server/Threads/SocketThread.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,18 +35,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/KHTN/Java/Practices/21424067/StudentManager&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/KHTN/Java/DirMonitor/java_directory_monitor_system/DirectoryMonitorSystem/src/main/app-server",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="NewJFrame" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="javaapplication1.NewJFrame" />
@@ -60,6 +61,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ServerUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ServerUI" />
+      <module name="DirectoryMonitorSystem" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ServerUI" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -74,7 +87,8 @@
       <workItem from="1659868417797" duration="9546000" />
       <workItem from="1659898647000" duration="99000" />
       <workItem from="1659898764642" duration="305000" />
-      <workItem from="1659964268876" duration="1573000" />
+      <workItem from="1659964268876" duration="8452000" />
+      <workItem from="1660475370497" duration="2007000" />
     </task>
     <task id="LOCAL-00001" summary="FEAT: ReInit">
       <created>1659462255024</created>
@@ -118,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659964846024</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="FEAT: Init Clients table">
+      <created>1659965864932</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1659965864932</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -142,6 +163,18 @@
     <MESSAGE value="FEAT: Add client UI" />
     <MESSAGE value="FEAT: Update server ui, init socket thread" />
     <MESSAGE value="FEAT: Init socket thread" />
-    <option name="LAST_COMMIT_MESSAGE" value="FEAT: Init socket thread" />
+    <MESSAGE value="FEAT: Init Clients table" />
+    <option name="LAST_COMMIT_MESSAGE" value="FEAT: Init Clients table" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/app-client/ClientUI.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

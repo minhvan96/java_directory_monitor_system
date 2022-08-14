@@ -1,5 +1,7 @@
 import javax.swing.*;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.AsynchronousSocketChannel;
@@ -14,8 +16,15 @@ public class ClientUI extends JFrame{
     private JLabel serverAddressLabel;
     private JTextField serverAddressTextField;
     private JButton connectToServerButton;
-    AsynchronousSocketChannel client = null;
+    private AsynchronousSocketChannel client;
+    private static ClientUI instance;
 
+    private Future<Void> future;
+    public static ClientUI getInstance() {
+        if (instance == null)
+            instance = new ClientUI();
+        return instance;
+    }
     public String sendMessage(String message) throws ExecutionException, InterruptedException {
         byte[] byteMsg = new String(message).getBytes();
         ByteBuffer buffer = ByteBuffer.wrap(byteMsg);
@@ -34,7 +43,17 @@ public class ClientUI extends JFrame{
         buffer.clear();
         return echo;
     }
+    private ClientUI() {
+        try {
+            client = AsynchronousSocketChannel.open();
+            InetSocketAddress hostAddress = new InetSocketAddress("localhost", 1234);
+            future = client.connect(hostAddress);
+            start();
 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public ClientUI(String title) {
         super(title);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -42,20 +61,39 @@ public class ClientUI extends JFrame{
         this.pack();
         connectToServerButton.addActionListener(e -> {
             try {
-                client = AsynchronousSocketChannel.open();
-                InetSocketAddress hostAddress = new InetSocketAddress("127.0.0.1", 1234);
-                Future<Void> future = client.connect(hostAddress);
-                System.out.println("Connect to server successfully");
-                sendMessage("Hellllooooo");
-                future.get();
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
+                ClientUI client = ClientUI.getInstance();
+                client.start();
+
+                client.start();
+                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                String line;
+                while ((line = br.readLine()) != null) {
+                    String response = client.sendMessage(line);
+                    System.out.println("response from server: " + response);
+                    System.out.println("Message to server:");
+                }
             } catch (ExecutionException ex) {
                 throw new RuntimeException(ex);
             } catch (InterruptedException ex) {
                 throw new RuntimeException(ex);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
             }
         });
+    }
+    private void start() {
+        try {
+            future.get();
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
+    public void stop() {
+        try {
+            client.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args){

@@ -57,7 +57,7 @@ public class ServerUI extends JFrame{
 
                     server.bind(new InetSocketAddress(socketHost,socketPort));
                     Future<AsynchronousSocketChannel> acceptCon = server.accept();
-                    AsynchronousSocketChannel client = acceptCon.get(10, TimeUnit.SECONDS);
+                    AsynchronousSocketChannel client = acceptCon.get(50, TimeUnit.SECONDS);
                     if ((client != null) && (client.isOpen())) {
                         ByteBuffer buffer = ByteBuffer.allocate(1024);
                         Future<Integer> readVal = client.read(buffer);

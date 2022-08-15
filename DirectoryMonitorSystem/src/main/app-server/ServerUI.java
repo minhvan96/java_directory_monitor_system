@@ -1,9 +1,8 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
+import java.io.*;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.AsynchronousServerSocketChannel;
@@ -11,8 +10,7 @@ import java.nio.channels.AsynchronousSocketChannel;
 import java.nio.channels.CompletionHandler;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.*;
 
 public class ServerUI extends JFrame{
@@ -42,12 +40,55 @@ public class ServerUI extends JFrame{
         addOpenSocketListener();
     }
 
-    private void createClientsTable(){
-        String[] clientsTableColumn = {"Client ID", "Client Name"};
+    public void createClientsTable() {
+        var students = readClientLogs();
+        String[] studentTableColumnHeaders = {"Event", "Time"};
         clientsTable.setModel(new DefaultTableModel(
-                null,
-                clientsTableColumn
+                students,
+                studentTableColumnHeaders
         ));
+
+        TableRowSorter<TableModel> sorter = new TableRowSorter<>(clientsTable.getModel());
+        clientsTable.setRowSorter(sorter);
+        List<RowSorter.SortKey> sortKeys = new ArrayList<>(25);
+        sortKeys.add(new RowSorter.SortKey(0, SortOrder.ASCENDING));
+        sortKeys.add(new RowSorter.SortKey(1, SortOrder.ASCENDING));
+        sorter.setSortKeys(sortKeys);
+        // endregion
+    }
+    private Object[][] readClientLogs() {
+        try {
+            String directoryPath = System.getenv("APPDATA");
+            String path = String.valueOf(Paths.get(directoryPath, "client"));
+            Integer index = 0;
+            File studentFile = new File(path);
+            Scanner studentReader = new Scanner(studentFile);
+
+            Object[][] students = new Object[getMaxLine(path)][2];
+
+            while (studentReader.hasNextLine()) {
+                String line = studentReader.nextLine();
+                if (line == "")
+                    continue;
+                students[index][0] = line;
+                students[index][1] = new Date();
+                index++;
+            }
+            return students;
+        } catch (FileNotFoundException exception) {
+            System.out.println("cannot read file");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+    private static int getMaxLine(String filePath) throws IOException {
+        BufferedReader input = new BufferedReader(new FileReader(filePath));
+        int index = 0;
+        while (input.readLine() != null) {
+            index++;
+        }
+        return index;
     }
     private void addOpenSocketListener(){
         new SwingWorker(){
@@ -110,7 +151,6 @@ public class ServerUI extends JFrame{
                 actionInfo.put("action", "write");
                 clientChannel.write(buffer, actionInfo, this);
                 String bufferString = new String(buffer.array(), StandardCharsets.UTF_8);
-                System.out.println("Read: " + bufferString);
                 try {
                     writeToFile(clientChannel.getLocalAddress().toString(), bufferString.trim());
                 } catch (IOException e) {
@@ -118,7 +158,7 @@ public class ServerUI extends JFrame{
                 }
                 buffer.clear();
             } else if ("write".equals(action)) {
-                ByteBuffer buffer = ByteBuffer.allocate(32);
+                ByteBuffer buffer = ByteBuffer.allocate(512);
                 actionInfo.put("action", "read");
                 actionInfo.put("buffer", buffer);
                 clientChannel.read(buffer, actionInfo, this);
@@ -145,6 +185,7 @@ public class ServerUI extends JFrame{
                 BufferedWriter output = new BufferedWriter(new FileWriter(path, true));
                 output.append(text+ '\n');
                 output.close();
+                createClientsTable();
             } catch (IOException e) {
                 System.out.println("An error occurred.");
                 e.printStackTrace();

@@ -1,11 +1,16 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.AsynchronousServerSocketChannel;
 import java.nio.channels.AsynchronousSocketChannel;
 import java.nio.channels.CompletionHandler;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.*;
@@ -70,13 +75,12 @@ public class ServerUI extends JFrame{
                                             readInfo.put("action", "read");
                                             readInfo.put("buffer", buffer);
                                             clientChannel.read(buffer, readInfo, handler);
-                                            String s = StandardCharsets.UTF_8.decode(buffer).toString();
-                                            int i =0;
                                         }
                                     }
 
                                     @Override
                                     public void failed(Throwable exc, Object attachment) {
+                                        System.out.println("Failed!!!");
                                         // process error
                                     }
                                 });
@@ -105,19 +109,46 @@ public class ServerUI extends JFrame{
                 buffer.flip();
                 actionInfo.put("action", "write");
                 clientChannel.write(buffer, actionInfo, this);
+                String bufferString = new String(buffer.array(), StandardCharsets.UTF_8);
+                System.out.println("Read: " + bufferString);
+                try {
+                    writeToFile(clientChannel.getLocalAddress().toString(), bufferString.trim());
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
                 buffer.clear();
             } else if ("write".equals(action)) {
                 ByteBuffer buffer = ByteBuffer.allocate(32);
                 actionInfo.put("action", "read");
                 actionInfo.put("buffer", buffer);
                 clientChannel.read(buffer, actionInfo, this);
+                String newContent = new String(buffer.array(), StandardCharsets.UTF_8);
+                System.out.println("Write:" + newContent);
             }
 
         }
         @Override
         public void failed(Throwable exc, Map<String, Object> attachment) {
-
+            System.out.println("Failed");
         }
 
+        private void writeToFile(String id, String text){
+            try {
+                String directoryPath = System.getenv("APPDATA");
+                String path = String.valueOf(Paths.get(directoryPath, "client"));
+                File myObj = new File(path);
+                if (myObj.createNewFile()) {
+                    System.out.println("File created: " + myObj.getName());
+                } else {
+                    System.out.println("File already exists.");
+                }
+                BufferedWriter output = new BufferedWriter(new FileWriter(path, true));
+                output.append(text+ '\n');
+                output.close();
+            } catch (IOException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
+        }
     }
 }

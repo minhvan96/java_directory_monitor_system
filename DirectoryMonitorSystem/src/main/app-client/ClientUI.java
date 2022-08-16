@@ -63,71 +63,84 @@ public class ClientUI extends JFrame{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(mainPanel);
         this.pack();
+
+
         connectToServerButton.addActionListener(e -> {
-            try {
-                ClientUI client = ClientUI.getInstance();
-                client.start();
-                System.out.println("Connect to server successfully");
-
-                //region watcher
-                Path path = Path.of("D:\\KHTN\\Java\\DirMonitor\\test");
-                FileSystem fs = path.getFileSystem();
-                try (WatchService service = fs.newWatchService()){
-                    path.register(service, ENTRY_CREATE, ENTRY_MODIFY, ENTRY_DELETE);
-                    WatchKey key;
-                    while (true) {
-                        key = service.take();
-                        WatchEvent.Kind<?> kind;
-                        String message = "";
-                        for (WatchEvent<?> watchEvent : key.pollEvents()) {
-                            // Get the type of the event
-                            kind = watchEvent.kind();
-                            if (OVERFLOW == kind) {
-                            } else if (ENTRY_CREATE == kind) {
-                                Path newPath = ((WatchEvent<Path>) watchEvent).context();
-                                message ="New path created: " + newPath;
-                                System.out.println(message);
-                            } else if (ENTRY_MODIFY == kind) {
-                                Path newPath = ((WatchEvent<Path>) watchEvent).context();
-                                message = "New path modified: " + newPath;
-                                System.out.println(message);
-                            } else if(ENTRY_DELETE == kind){
-                                Path newPath = ((WatchEvent<Path>) watchEvent).context();
-                                message = "New path deleted: " + newPath;
-                                System.out.println(message);
-                            }
-                            client.sendMessage(message);
-                        }
-
-                        if (!key.reset()) {
-                            break; // loop
-                        }
-                    }
-                }
-                catch (IOException ioe) {
-                    ioe.printStackTrace();
-                } catch (InterruptedException ie) {
-                    ie.printStackTrace();
-                }
-
-                //
-
-                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-                String line;
-                while ((line = br.readLine()) != null) {
-                    String response = client.sendMessage(line);
-                    System.out.println("response from server: " + response);
-                    System.out.println("Message to server:");
-                }
-            } catch (ExecutionException ex) {
-                throw new RuntimeException(ex);
-            } catch (InterruptedException ex) {
-                throw new RuntimeException(ex);
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
+            addOpenSocketListener();
         });
     }
+
+    private void addOpenSocketListener(){
+        new SwingWorker<>(){
+            @Override
+            protected Object doInBackground()  {
+                try {
+                    ClientUI client = ClientUI.getInstance();
+                    client.start();
+                    System.out.println("Connect to server successfully");
+
+                    //region watcher
+                    Path path = Path.of("D:\\KHTN\\Java\\DirMonitor\\test");
+                    FileSystem fs = path.getFileSystem();
+                    try (WatchService service = fs.newWatchService()){
+                        path.register(service, ENTRY_CREATE, ENTRY_MODIFY, ENTRY_DELETE);
+                        WatchKey key;
+                        while (true) {
+                            key = service.take();
+                            WatchEvent.Kind<?> kind;
+                            String message = "";
+                            for (WatchEvent<?> watchEvent : key.pollEvents()) {
+                                // Get the type of the event
+                                kind = watchEvent.kind();
+                                if (OVERFLOW == kind) {
+                                } else if (ENTRY_CREATE == kind) {
+                                    Path newPath = ((WatchEvent<Path>) watchEvent).context();
+                                    message ="New path created: " + newPath;
+                                    System.out.println(message);
+                                } else if (ENTRY_MODIFY == kind) {
+                                    Path newPath = ((WatchEvent<Path>) watchEvent).context();
+                                    message = "New path modified: " + newPath;
+                                    System.out.println(message);
+                                } else if(ENTRY_DELETE == kind){
+                                    Path newPath = ((WatchEvent<Path>) watchEvent).context();
+                                    message = "New path deleted: " + newPath;
+                                    System.out.println(message);
+                                }
+                                client.sendMessage(message);
+                            }
+
+                            if (!key.reset()) {
+                                break; // loop
+                            }
+                        }
+                    }
+                    catch (IOException ioe) {
+                        ioe.printStackTrace();
+                    } catch (InterruptedException ie) {
+                        ie.printStackTrace();
+                    }
+
+                    //
+
+                    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                    String line;
+                    while ((line = br.readLine()) != null) {
+                        String response = client.sendMessage(line);
+                        System.out.println("response from server: " + response);
+                        System.out.println("Message to server:");
+                    }
+                } catch (ExecutionException ex) {
+                    throw new RuntimeException(ex);
+                } catch (InterruptedException ex) {
+                    throw new RuntimeException(ex);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+                return "Connected";
+            }
+        }.execute();
+    }
+
     private void start() {
         try {
             future.get();

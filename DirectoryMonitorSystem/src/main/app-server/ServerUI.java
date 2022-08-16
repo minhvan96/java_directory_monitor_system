@@ -41,40 +41,50 @@ public class ServerUI extends JFrame{
     }
 
     public void createClientsTable() {
-        var students = readClientLogs();
-        String[] studentTableColumnHeaders = {"Event", "Time"};
+        var clientLogs = readClientLogs();
+        String[] clientTableColumnHeaders = {"Address","Event", "Time"};
         clientsTable.setModel(new DefaultTableModel(
-                students,
-                studentTableColumnHeaders
+                clientLogs,
+                clientTableColumnHeaders
         ));
 
         TableRowSorter<TableModel> sorter = new TableRowSorter<>(clientsTable.getModel());
-        clientsTable.setRowSorter(sorter);
-        List<RowSorter.SortKey> sortKeys = new ArrayList<>(25);
+        List<RowSorter.SortKey> sortKeys = new ArrayList<>(3);
         sortKeys.add(new RowSorter.SortKey(0, SortOrder.ASCENDING));
         sortKeys.add(new RowSorter.SortKey(1, SortOrder.ASCENDING));
+        sortKeys.add(new RowSorter.SortKey(2, SortOrder.ASCENDING));
         sorter.setSortKeys(sortKeys);
-        // endregion
     }
+
+    private void addNewLogToTable(String clientId, String event, String date){
+        DefaultTableModel model = (DefaultTableModel) clientsTable.getModel();
+        model.addRow(new Object[]{clientId, event, date});
+    }
+
     private Object[][] readClientLogs() {
         try {
             String directoryPath = System.getenv("APPDATA");
             String path = String.valueOf(Paths.get(directoryPath, "client"));
             Integer index = 0;
-            File studentFile = new File(path);
-            Scanner studentReader = new Scanner(studentFile);
+            File logFile = new File(path);
+            Scanner logReader = new Scanner(logFile);
 
-            Object[][] students = new Object[getMaxLine(path)][2];
+            Object[][] record = new Object[getMaxLine(path)][3];
 
-            while (studentReader.hasNextLine()) {
-                String line = studentReader.nextLine();
+            while (logReader.hasNextLine()) {
+                String line = logReader.nextLine();
                 if (line == "")
                     continue;
-                students[index][0] = line;
-                students[index][1] = new Date();
+                String[] data = line.split("#", 3);
+                String clientAddress = data[0];
+                String action = data[1];
+                String date = data[2];
+                record[index][0] = clientAddress;
+                record[index][1] = action;
+                record[index][2] = date;
                 index++;
             }
-            return students;
+            return record;
         } catch (FileNotFoundException exception) {
             System.out.println("cannot read file");
         } catch (IOException e) {
@@ -152,7 +162,7 @@ public class ServerUI extends JFrame{
                 clientChannel.write(buffer, actionInfo, this);
                 String bufferString = new String(buffer.array(), StandardCharsets.UTF_8);
                 try {
-                    writeToFile(clientChannel.getLocalAddress().toString(), bufferString.trim());
+                    writeToFile(clientChannel.getRemoteAddress().toString(), bufferString.trim());
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -183,9 +193,9 @@ public class ServerUI extends JFrame{
                     System.out.println("File already exists.");
                 }
                 BufferedWriter output = new BufferedWriter(new FileWriter(path, true));
-                output.append(text+ '\n');
+                output.append(id + "#" + text + "#" + new Date() + '\n');
                 output.close();
-                createClientsTable();
+                addNewLogToTable(id, text, new Date().toString());
             } catch (IOException e) {
                 System.out.println("An error occurred.");
                 e.printStackTrace();

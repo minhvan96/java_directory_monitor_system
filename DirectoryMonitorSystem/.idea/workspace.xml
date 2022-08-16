@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e094155-9bd3-4da6-a859-3a81b7ebc57e" name="Changes" comment="FEAT: Update writing to file">
-      <change afterPath="$PROJECT_DIR$/src/main/app-server/ClientLog.java" afterDir="false" />
+    <list default="true" id="2e094155-9bd3-4da6-a859-3a81b7ebc57e" name="Changes" comment="FEAT: Update read log">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/app-client/ClientUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/app-client/ClientUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/app-server/ClientLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/app-server/ClientLog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/app-server/ServerUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/app-server/ServerUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -89,6 +90,7 @@
       <workItem from="1659964268876" duration="8452000" />
       <workItem from="1660475370497" duration="9476000" />
       <workItem from="1660564950985" duration="3506000" />
+      <workItem from="1660657154079" duration="3836000" />
     </task>
     <task id="LOCAL-00001" summary="FEAT: ReInit">
       <created>1659462255024</created>
@@ -153,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660490035281</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="FEAT: Update read log">
+      <created>1660574760259</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1660574760259</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,43 +188,40 @@
     <MESSAGE value="FEAT: Init socket thread" />
     <MESSAGE value="FEAT: Init Clients table" />
     <MESSAGE value="FEAT: Init client connect to server" />
-    <option name="LAST_COMMIT_MESSAGE" value="FEAT: Init client connect to server" />
+    <MESSAGE value="FEAT: Update read log" />
+    <option name="LAST_COMMIT_MESSAGE" value="FEAT: Update read log" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/app-server/ServerUI.java</url>
-          <line>178</line>
-          <option name="timeStamp" value="40" />
+          <url>file://$PROJECT_DIR$/../../../../_git/Java/networking/TCPServer.java</url>
+          <line>6</line>
+          <option name="timeStamp" value="54" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/app-server/ServerUI.java</url>
-          <line>176</line>
-          <option name="timeStamp" value="44" />
+          <line>88</line>
+          <option name="timeStamp" value="59" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/app-server/ServerUI.java</url>
-          <line>117</line>
-          <option name="timeStamp" value="49" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/app-client/ClientUI.java</url>
-          <line>98</line>
-          <option name="timeStamp" value="50" />
+          <line>90</line>
+          <option name="timeStamp" value="60" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/app-server/ServerUI.java</url>
-          <line>160</line>
-          <option name="timeStamp" value="52" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/app-server/ServerUI.java</url>
-          <line>150</line>
-          <option name="timeStamp" value="53" />
+          <line>55</line>
+          <option name="timeStamp" value="64" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="Paths.get(directoryPath, id)" language="JAVA" />
+        <watch expression="Paths.get(directoryPath, &quot;test.txt&quot;)" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/DirectoryMonitorSystem$ServerUI.ic" NAME="ServerUI Coverage Results" MODIFIED="1660498974172" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

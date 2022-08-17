@@ -4,8 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e094155-9bd3-4da6-a859-3a81b7ebc57e" name="Changes" comment="FEAT: Init ClientUI ant build">
+    <list default="true" id="2e094155-9bd3-4da6-a859-3a81b7ebc57e" name="Changes" comment="FEAT: Init ServerUI ant build">
+      <change afterPath="$PROJECT_DIR$/src/main/app-client/lib/forms_rt.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/app-server/lib/forms_rt.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/app-client/ClientUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/app-client/ClientUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/app-client/build.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/app-client/build.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/app-client/build/classes/ClientUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/app-client/build/classes/ClientUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/app-client/build/jar/app-client.jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/app-client/build/jar/app-client.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/app-server/ServerUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/app-server/ServerUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/app-server/build.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/app-server/build.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,11 +49,12 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/KHTN/Java/DirMonitor/java_directory_monitor_system/DirectoryMonitorSystem/src/main/app-client",
+    "last_opened_file_path": "D:/KHTN/Java/DirMonitor/java_directory_monitor_system/DirectoryMonitorSystem/src/main/app-client/forms_rt.jar",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.propGUI"
   },
   "keyToStringList": {
     "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
@@ -55,11 +64,15 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\KHTN\Java\DirMonitor\java_directory_monitor_system\DirectoryMonitorSystem\src\main\app-client" />
       <recent name="D:\KHTN\Java\DirMonitor\java_directory_monitor_system\DirectoryMonitorSystem\src\main\app-server" />
+      <recent name="D:\KHTN\Java\DirMonitor\java_directory_monitor_system\DirectoryMonitorSystem\src\main\app-client" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\KHTN\Java\DirMonitor\java_directory_monitor_system\DirectoryMonitorSystem\src\main\app-server\lib" />
+      <recent name="D:\KHTN\Java\DirMonitor\java_directory_monitor_system\DirectoryMonitorSystem\src\main\app-client\lib" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.NewJFrame">
+  <component name="RunManager">
     <configuration name="NewJFrame" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="javaapplication1.NewJFrame" />
       <module name="DirectoryMonitorSystem" />
@@ -104,7 +117,8 @@
       <workItem from="1660564950985" duration="3506000" />
       <workItem from="1660657154079" duration="5689000" />
       <workItem from="1660672258793" duration="1866000" />
-      <workItem from="1660741689489" duration="1305000" />
+      <workItem from="1660741689489" duration="3084000" />
+      <workItem from="1660749888530" duration="2023000" />
     </task>
     <task id="LOCAL-00001" summary="FEAT: ReInit">
       <created>1659462255024</created>
@@ -190,7 +204,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660742939074</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="FEAT: Init ServerUI ant build">
+      <created>1660743196838</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1660743196838</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,7 +241,8 @@
     <MESSAGE value="FEAT: Update read log" />
     <MESSAGE value="FEAT: Fix insert log error" />
     <MESSAGE value="FEAT: Init ClientUI ant build" />
-    <option name="LAST_COMMIT_MESSAGE" value="FEAT: Init ClientUI ant build" />
+    <MESSAGE value="FEAT: Init ServerUI ant build" />
+    <option name="LAST_COMMIT_MESSAGE" value="FEAT: Init ServerUI ant build" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -232,12 +254,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/app-server/ServerUI.java</url>
-          <line>87</line>
+          <line>91</line>
           <option name="timeStamp" value="59" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/app-server/ServerUI.java</url>
-          <line>89</line>
+          <line>93</line>
           <option name="timeStamp" value="60" />
         </line-breakpoint>
       </breakpoints>

@@ -1,15 +1,12 @@
 <project name="app-server" basedir="." default="main">
-
     <property name="src.dir"     value="./"/>
     <property name="build.dir"   value="build"/>
     <property name="classes.dir" value="${build.dir}/classes"/>
     <property name="jar.dir"     value="${build.dir}/jar"/>
     <property name="main-class"  value="ServerUI"/>
-
     <target name="clean">
         <delete dir="${build.dir}"/>
     </target>
-
     <target name="compile">
         <mkdir dir="${classes.dir}"/>
         <javac srcdir="${src.dir}" destdir="${classes.dir}"/>
@@ -27,5 +24,4 @@
     </target>
     <target name="clean-build" depends="clean,jar"/>
     <target name="main" depends="clean,run"/>
-
 </project>

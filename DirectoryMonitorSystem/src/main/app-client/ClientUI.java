@@ -1,18 +1,21 @@
 import javax.swing.*;
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.AsynchronousSocketChannel;
 import java.nio.file.*;
+import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
 import static java.nio.file.StandardWatchEventKinds.*;
 
-public class ClientUI extends JFrame{
+public class ClientUI extends JFrame {
     private JPanel mainPanel;
     private JPanel headerPanel;
     private JPanel bodyPanel;
@@ -25,11 +28,13 @@ public class ClientUI extends JFrame{
     private static ClientUI instance;
 
     private Future<Void> future;
+
     public static ClientUI getInstance() {
         if (instance == null)
             instance = new ClientUI();
         return instance;
     }
+
     public String sendMessage(String message) throws ExecutionException, InterruptedException {
         byte[] byteMsg = new String(message).getBytes();
         ByteBuffer buffer = ByteBuffer.wrap(byteMsg);
@@ -48,6 +53,7 @@ public class ClientUI extends JFrame{
         buffer.clear();
         return echo;
     }
+
     private ClientUI() {
         try {
 
@@ -60,6 +66,7 @@ public class ClientUI extends JFrame{
             e.printStackTrace();
         }
     }
+
     public ClientUI(String title) {
         super(title);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -68,20 +75,20 @@ public class ClientUI extends JFrame{
         connectToServerButton.addActionListener(e -> addOpenSocketListener());
     }
 
-    private void addOpenSocketListener(){
-        new SwingWorker<>(){
+    private void addOpenSocketListener() {
+        new SwingWorker<>() {
             @Override
-            protected Object doInBackground()  {
+            protected Object doInBackground() {
                 try {
                     ClientUI client = ClientUI.getInstance();
                     client.start();
                     System.out.println("Connect to server successfully");
                     SwingUtilities.invokeAndWait(()
-                            -> socketStateLabel.setText("Connected to server" ));
+                            -> socketStateLabel.setText("Connected to server"));
                     //region watcher
                     Path path = Path.of("D:\\KHTN\\Java\\DirMonitor\\test");
                     FileSystem fs = path.getFileSystem();
-                    try (WatchService service = fs.newWatchService()){
+                    try (WatchService service = fs.newWatchService()) {
                         path.register(service, ENTRY_CREATE, ENTRY_MODIFY, ENTRY_DELETE);
                         WatchKey key;
                         while (true) {
@@ -94,13 +101,13 @@ public class ClientUI extends JFrame{
                                 if (OVERFLOW == kind) {
                                 } else if (ENTRY_CREATE == kind) {
                                     Path newPath = ((WatchEvent<Path>) watchEvent).context();
-                                    message ="New path created: " + newPath;
+                                    message = "New path created: " + newPath;
                                     System.out.println(message);
                                 } else if (ENTRY_MODIFY == kind) {
                                     Path newPath = ((WatchEvent<Path>) watchEvent).context();
                                     message = "New path modified: " + newPath;
                                     System.out.println(message);
-                                } else if(ENTRY_DELETE == kind){
+                                } else if (ENTRY_DELETE == kind) {
                                     Path newPath = ((WatchEvent<Path>) watchEvent).context();
                                     message = "New path deleted: " + newPath;
                                     System.out.println(message);
@@ -112,8 +119,7 @@ public class ClientUI extends JFrame{
                                 break; // loop
                             }
                         }
-                    }
-                    catch (IOException ioe) {
+                    } catch (IOException ioe) {
                         ioe.printStackTrace();
                     } catch (InterruptedException ie) {
                         ie.printStackTrace();
@@ -149,6 +155,7 @@ public class ClientUI extends JFrame{
             e.printStackTrace();
         }
     }
+
     public void stop() {
         try {
             client.close();
@@ -157,8 +164,100 @@ public class ClientUI extends JFrame{
         }
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         JFrame frame = new ClientUI("Client");
         frame.setVisible(true);
+    }
+
+    {
+// GUI initializer generated by IntelliJ IDEA GUI Designer
+// >>> IMPORTANT!! <<<
+// DO NOT EDIT OR ADD ANY CODE HERE!
+        $$$setupUI$$$();
+    }
+
+    /**
+     * Method generated by IntelliJ IDEA GUI Designer
+     * >>> IMPORTANT!! <<<
+     * DO NOT edit this method OR call it in your code!
+     *
+     * @noinspection ALL
+     */
+    private void $$$setupUI$$$() {
+        mainPanel = new JPanel();
+        mainPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(3, 1, new Insets(0, 0, 0, 0), -1, -1));
+        headerPanel = new JPanel();
+        headerPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 4, new Insets(0, 0, 0, 0), -1, -1));
+        mainPanel.add(headerPanel, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        serverAddressLabel = new JLabel();
+        this.$$$loadLabelText$$$(serverAddressLabel, this.$$$getMessageFromBundle$$$("i18", "server.address"));
+        headerPanel.add(serverAddressLabel, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        serverAddressTextField = new JTextField();
+        serverAddressTextField.setText("");
+        headerPanel.add(serverAddressTextField, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+        connectToServerButton = new JButton();
+        connectToServerButton.setText("Connect");
+        headerPanel.add(connectToServerButton, new com.intellij.uiDesigner.core.GridConstraints(0, 3, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        socketStateLabel = new JLabel();
+        socketStateLabel.setText("Disconnected");
+        headerPanel.add(socketStateLabel, new com.intellij.uiDesigner.core.GridConstraints(0, 2, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        bodyPanel = new JPanel();
+        bodyPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
+        mainPanel.add(bodyPanel, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        footerPanel = new JPanel();
+        footerPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
+        mainPanel.add(footerPanel, new com.intellij.uiDesigner.core.GridConstraints(2, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        serverAddressLabel.setLabelFor(serverAddressTextField);
+    }
+
+    private static Method $$$cachedGetBundleMethod$$$ = null;
+
+    private String $$$getMessageFromBundle$$$(String path, String key) {
+        ResourceBundle bundle;
+        try {
+            Class<?> thisClass = this.getClass();
+            if ($$$cachedGetBundleMethod$$$ == null) {
+                Class<?> dynamicBundleClass = thisClass.getClassLoader().loadClass("com.intellij.DynamicBundle");
+                $$$cachedGetBundleMethod$$$ = dynamicBundleClass.getMethod("getBundle", String.class, Class.class);
+            }
+            bundle = (ResourceBundle) $$$cachedGetBundleMethod$$$.invoke(null, path, thisClass);
+        } catch (Exception e) {
+            bundle = ResourceBundle.getBundle(path);
+        }
+        return bundle.getString(key);
+    }
+
+    /**
+     * @noinspection ALL
+     */
+    private void $$$loadLabelText$$$(JLabel component, String text) {
+        StringBuffer result = new StringBuffer();
+        boolean haveMnemonic = false;
+        char mnemonic = '\0';
+        int mnemonicIndex = -1;
+        for (int i = 0; i < text.length(); i++) {
+            if (text.charAt(i) == '&') {
+                i++;
+                if (i == text.length()) break;
+                if (!haveMnemonic && text.charAt(i) != '&') {
+                    haveMnemonic = true;
+                    mnemonic = text.charAt(i);
+                    mnemonicIndex = result.length();
+                }
+            }
+            result.append(text.charAt(i));
+        }
+        component.setText(result.toString());
+        if (haveMnemonic) {
+            component.setDisplayedMnemonic(mnemonic);
+            component.setDisplayedMnemonicIndex(mnemonicIndex);
+        }
+    }
+
+    /**
+     * @noinspection ALL
+     */
+    public JComponent $$$getRootComponent$$$() {
+        return mainPanel;
     }
 }

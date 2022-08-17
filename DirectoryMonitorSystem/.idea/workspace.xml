@@ -4,17 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e094155-9bd3-4da6-a859-3a81b7ebc57e" name="Changes" comment="FEAT: Init ServerUI ant build">
-      <change afterPath="$PROJECT_DIR$/src/main/app-client/lib/forms_rt.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/app-server/lib/forms_rt.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="2e094155-9bd3-4da6-a859-3a81b7ebc57e" name="Changes" comment="FEAT: relocate ant build.xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/app-client/ClientUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/app-client/ClientUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/app-client/build.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/app-client/build.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/app-client/build/classes/ClientUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/app-client/build/classes/ClientUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/app-client/build/jar/app-client.jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/app-client/build/jar/app-client.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/app-server/ServerUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/app-server/ServerUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/app-server/build.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/app-server/build.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/app-client/build/classes/ClientUI$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/app-client/build/classes/ClientUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/app-client/build/jar/app-client.jar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +113,7 @@
       <workItem from="1660657154079" duration="5689000" />
       <workItem from="1660672258793" duration="1866000" />
       <workItem from="1660741689489" duration="3084000" />
-      <workItem from="1660749888530" duration="2023000" />
+      <workItem from="1660749888530" duration="3326000" />
     </task>
     <task id="LOCAL-00001" summary="FEAT: ReInit">
       <created>1659462255024</created>
@@ -211,7 +206,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660743196838</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="FEAT: relocate ant build.xml">
+      <created>1660754869590</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1660754869590</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,7 +244,8 @@
     <MESSAGE value="FEAT: Fix insert log error" />
     <MESSAGE value="FEAT: Init ClientUI ant build" />
     <MESSAGE value="FEAT: Init ServerUI ant build" />
-    <option name="LAST_COMMIT_MESSAGE" value="FEAT: Init ServerUI ant build" />
+    <MESSAGE value="FEAT: relocate ant build.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="FEAT: relocate ant build.xml" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

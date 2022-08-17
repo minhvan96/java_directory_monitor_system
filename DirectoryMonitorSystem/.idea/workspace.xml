@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e094155-9bd3-4da6-a859-3a81b7ebc57e" name="Changes" comment="FEAT: update ant build.xml ClientUI">
-      <change beforePath="$PROJECT_DIR$/src/main/app-client/ClientUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/app-client/ClientUI.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/i18.properties" beforeDir="false" />
+    <list default="true" id="2e094155-9bd3-4da6-a859-3a81b7ebc57e" name="Changes" comment="FEAT: update ant build.xml ClientUI successfully">
+      <change afterPath="$PROJECT_DIR$/src/main/app-client/build/jar/resources/i18.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/app-server/ServerUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/app-server/ServerUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/app-server/ServerUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/app-server/ServerUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/app-server/build.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/app-server/build.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +114,7 @@
       <workItem from="1660657154079" duration="5689000" />
       <workItem from="1660672258793" duration="1866000" />
       <workItem from="1660741689489" duration="3084000" />
-      <workItem from="1660749888530" duration="3833000" />
+      <workItem from="1660749888530" duration="4032000" />
     </task>
     <task id="LOCAL-00001" summary="FEAT: ReInit">
       <created>1659462255024</created>
@@ -218,7 +221,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660756018800</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="FEAT: update ant build.xml ClientUI successfully">
+      <created>1660756571995</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1660756571995</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -251,7 +261,8 @@
     <MESSAGE value="FEAT: Init ServerUI ant build" />
     <MESSAGE value="FEAT: relocate ant build.xml" />
     <MESSAGE value="FEAT: update ant build.xml ClientUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="FEAT: update ant build.xml ClientUI" />
+    <MESSAGE value="FEAT: update ant build.xml ClientUI successfully" />
+    <option name="LAST_COMMIT_MESSAGE" value="FEAT: update ant build.xml ClientUI successfully" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

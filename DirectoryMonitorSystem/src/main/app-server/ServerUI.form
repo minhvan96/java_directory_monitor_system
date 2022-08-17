@@ -69,7 +69,7 @@
                 </constraints>
                 <properties>
                   <labelFor value="1ba5b"/>
-                  <text resource-bundle="i18" key="clients"/>
+                  <text value="Client" noi18n="true"/>
                 </properties>
               </component>
             </children>
@@ -96,7 +96,7 @@
                 </constraints>
                 <properties>
                   <labelFor value="d57f9"/>
-                  <text resource-bundle="i18" key="client.log"/>
+                  <text value="Log"/>
                 </properties>
               </component>
             </children>

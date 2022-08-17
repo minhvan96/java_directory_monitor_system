@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e094155-9bd3-4da6-a859-3a81b7ebc57e" name="Changes" comment="FEAT: Fix insert log error">
-      <change afterPath="$PROJECT_DIR$/src/main/app-client/build.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/app-client/build/classes/ClientUI$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/app-client/build/classes/ClientUI.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/app-client/build/jar/app-client.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/app-server/build.xml" afterDir="false" />
+    <list default="true" id="2e094155-9bd3-4da6-a859-3a81b7ebc57e" name="Changes" comment="FEAT: Init ClientUI ant build">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/app-client/ClientUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/app-client/ClientUI.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/app-client/ClientUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/app-client/ClientUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/app-server/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/app-server/ServerUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/app-server/ServerUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/app-server/build.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/app-server/build.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +41,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/KHTN/Java/DirMonitor/java_directory_monitor_system/DirectoryMonitorSystem/src/main/app-server",
+    "last_opened_file_path": "D:/KHTN/Java/DirMonitor/java_directory_monitor_system/DirectoryMonitorSystem/src/main/app-client",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
@@ -63,6 +55,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\KHTN\Java\DirMonitor\java_directory_monitor_system\DirectoryMonitorSystem\src\main\app-client" />
       <recent name="D:\KHTN\Java\DirMonitor\java_directory_monitor_system\DirectoryMonitorSystem\src\main\app-server" />
     </key>
   </component>
@@ -111,7 +104,7 @@
       <workItem from="1660564950985" duration="3506000" />
       <workItem from="1660657154079" duration="5689000" />
       <workItem from="1660672258793" duration="1866000" />
-      <workItem from="1660741689489" duration="662000" />
+      <workItem from="1660741689489" duration="1305000" />
     </task>
     <task id="LOCAL-00001" summary="FEAT: ReInit">
       <created>1659462255024</created>
@@ -190,7 +183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660661414103</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="FEAT: Init ClientUI ant build">
+      <created>1660742939074</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1660742939074</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,7 +219,8 @@
     <MESSAGE value="FEAT: Init client connect to server" />
     <MESSAGE value="FEAT: Update read log" />
     <MESSAGE value="FEAT: Fix insert log error" />
-    <option name="LAST_COMMIT_MESSAGE" value="FEAT: Fix insert log error" />
+    <MESSAGE value="FEAT: Init ClientUI ant build" />
+    <option name="LAST_COMMIT_MESSAGE" value="FEAT: Init ClientUI ant build" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

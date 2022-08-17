@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.InvocationTargetException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.AsynchronousSocketChannel;
@@ -19,6 +20,7 @@ public class ClientUI extends JFrame{
     private JLabel serverAddressLabel;
     private JTextField serverAddressTextField;
     private JButton connectToServerButton;
+    private JLabel socketStateLabel;
     private AsynchronousSocketChannel client;
     private static ClientUI instance;
 
@@ -63,11 +65,7 @@ public class ClientUI extends JFrame{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(mainPanel);
         this.pack();
-
-
-        connectToServerButton.addActionListener(e -> {
-            addOpenSocketListener();
-        });
+        connectToServerButton.addActionListener(e -> addOpenSocketListener());
     }
 
     private void addOpenSocketListener(){
@@ -78,7 +76,8 @@ public class ClientUI extends JFrame{
                     ClientUI client = ClientUI.getInstance();
                     client.start();
                     System.out.println("Connect to server successfully");
-
+                    SwingUtilities.invokeAndWait(()
+                            -> socketStateLabel.setText("Connected to server" ));
                     //region watcher
                     Path path = Path.of("D:\\KHTN\\Java\\DirMonitor\\test");
                     FileSystem fs = path.getFileSystem();
@@ -135,6 +134,8 @@ public class ClientUI extends JFrame{
                     throw new RuntimeException(ex);
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
+                } catch (InvocationTargetException e) {
+                    throw new RuntimeException(e);
                 }
                 return "Connected";
             }

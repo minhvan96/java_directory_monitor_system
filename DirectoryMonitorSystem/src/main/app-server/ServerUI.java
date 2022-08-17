@@ -49,10 +49,9 @@ public class ServerUI extends JFrame{
         ));
 
         TableRowSorter<TableModel> sorter = new TableRowSorter<>(clientsTable.getModel());
+        clientsTable.setRowSorter(sorter);
         List<RowSorter.SortKey> sortKeys = new ArrayList<>(3);
-        sortKeys.add(new RowSorter.SortKey(0, SortOrder.ASCENDING));
-        sortKeys.add(new RowSorter.SortKey(1, SortOrder.ASCENDING));
-        sortKeys.add(new RowSorter.SortKey(2, SortOrder.ASCENDING));
+        sortKeys.add(new RowSorter.SortKey(2, SortOrder.DESCENDING));
         sorter.setSortKeys(sortKeys);
     }
 

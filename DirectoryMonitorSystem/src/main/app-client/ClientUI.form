@@ -22,7 +22,7 @@
             </constraints>
             <properties>
               <labelFor value="c7cfa"/>
-              <text resource-bundle="i18" key="server.address"/>
+              <text value="Server address" noi18n="true"/>
             </properties>
           </component>
           <component id="c7cfa" class="javax.swing.JTextField" binding="serverAddressTextField">

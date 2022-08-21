@@ -84,13 +84,21 @@ public class ClientUI extends JFrame {
             @Override
             protected Object doInBackground() {
                 try {
+                    if(!isValidPath(pathTextField.getText()))
+                    {
+                        SwingUtilities.invokeAndWait(() -> {
+                            JOptionPane.showMessageDialog(new JFrame(), "Path is invalid");
+                        });
+                        return "Failed";
+                    }
+
                     ClientUI client = ClientUI.getInstance();
                     client.start();
                     System.out.println("Connect to server successfully");
                     SwingUtilities.invokeAndWait(()
                             -> socketStateLabel.setText("Connected to server"));
                     //region watcher
-                    Path path = Path.of("D:\\KHTN\\Java\\DirMonitor\\test");
+                    Path path = Path.of(pathTextField.getText());
                     FileSystem fs = path.getFileSystem();
                     try (WatchService service = fs.newWatchService()) {
                         path.register(service, ENTRY_CREATE, ENTRY_MODIFY, ENTRY_DELETE);
@@ -129,8 +137,6 @@ public class ClientUI extends JFrame {
                         ie.printStackTrace();
                     }
 
-                    //
-
                     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
                     String line;
                     while ((line = br.readLine()) != null) {
@@ -152,6 +158,17 @@ public class ClientUI extends JFrame {
         }.execute();
     }
 
+    private static boolean isValidPath(String path) {
+        try {
+            if(path != null && !path.trim().isEmpty())
+                Paths.get(path);
+            else
+                return false;
+        } catch (InvalidPathException | NullPointerException ex) {
+            return false;
+        }
+        return true;
+    }
     private void start() {
         try {
             future.get();

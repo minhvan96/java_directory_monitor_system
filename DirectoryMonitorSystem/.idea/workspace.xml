@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e094155-9bd3-4da6-a859-3a81b7ebc57e" name="Changes" comment="FEAT: update ant build.xml ServerUI successfully">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/app-server/build/jar/lib/forms_rt.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/app-client/ClientUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/app-client/ClientUI.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/app-client/ClientUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/app-client/ClientUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/app-server/ServerUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/app-server/ServerUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/app-server/build/classes/ServerUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/app-server/build/classes/ServerUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/app-server/build/jar/app-server.jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/app-server/build/jar/app-server.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +65,7 @@
       <recent name="D:\KHTN\Java\DirMonitor\java_directory_monitor_system\DirectoryMonitorSystem\src\main\app-client\lib" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.NewJFrame">
+  <component name="RunManager">
     <configuration name="NewJFrame" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="javaapplication1.NewJFrame" />
       <module name="DirectoryMonitorSystem" />
@@ -120,7 +113,7 @@
       <workItem from="1660741689489" duration="3084000" />
       <workItem from="1660749888530" duration="5200000" />
       <workItem from="1661084184432" duration="1100000" />
-      <workItem from="1661087002312" duration="213000" />
+      <workItem from="1661087002312" duration="3100000" />
     </task>
     <task id="LOCAL-00001" summary="FEAT: ReInit">
       <created>1659462255024</created>
@@ -296,6 +289,36 @@
           <line>93</line>
           <option name="timeStamp" value="60" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/app-client/ClientUI.java</url>
+          <line>86</line>
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/app-client/ClientUI.java</url>
+          <line>164</line>
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/app-client/ClientUI.java</url>
+          <line>104</line>
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/app-client/ClientUI.java</url>
+          <line>100</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/app-server/ServerUI.java</url>
+          <line>164</line>
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/app-server/ServerUI.java</url>
+          <line>193</line>
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
@@ -303,6 +326,7 @@
         <watch expression="Paths.get(directoryPath, id)" language="JAVA" />
         <watch expression="Paths.get(directoryPath, &quot;test.txt&quot;)" language="JAVA" />
         <watch expression="clientsTable.getModel()" language="JAVA" />
+        <watch expression="pathTextField.getText()" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

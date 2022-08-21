@@ -2,9 +2,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
-import java.awt.*;
 import java.io.*;
-import java.lang.reflect.Method;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.AsynchronousServerSocketChannel;
@@ -12,9 +10,12 @@ import java.nio.channels.AsynchronousSocketChannel;
 import java.nio.channels.CompletionHandler;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Paths;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.*;
 import java.util.List;
-import java.util.concurrent.*;
+
 
 public class ServerUI extends JFrame {
     private static final int socketPort = 1234;
@@ -59,9 +60,10 @@ public class ServerUI extends JFrame {
         sorter.setSortKeys(sortKeys);
     }
 
-    private void addNewLogToTable(String clientId, String event, String date) {
+    private void addNewLogToTable(String clientId, String event, long dateTimeStamp) {
         DefaultTableModel model = (DefaultTableModel) clientsTable.getModel();
-        model.addRow(new Object[]{clientId, event, date});
+        Date dateTime = new Date(dateTimeStamp);
+        model.addRow(new Object[]{clientId, event, dateTime});
     }
 
     private Object[][] readClientLogs() {
@@ -81,10 +83,10 @@ public class ServerUI extends JFrame {
                 String[] data = line.split("#", 3);
                 String clientAddress = data[0];
                 String action = data[1];
-                String date = data[2];
+                Long date = Long.valueOf(data[2]);
                 record[index][0] = clientAddress;
                 record[index][1] = action;
-                record[index][2] = date;
+                record[index][2] = new Date(date);
                 index++;
             }
             return record;
@@ -202,7 +204,8 @@ public class ServerUI extends JFrame {
                 BufferedWriter output = new BufferedWriter(new FileWriter(path, true));
                 output.append(id + "#" + text + "#" + new Date() + '\n');
                 output.close();
-                addNewLogToTable(id, text, new Date().toString());
+                long now = Instant.now().toEpochMilli();
+                addNewLogToTable(id, text, now);
             } catch (IOException e) {
                 System.out.println("An error occurred.");
                 e.printStackTrace();

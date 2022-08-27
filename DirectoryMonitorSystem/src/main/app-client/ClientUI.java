@@ -125,6 +125,7 @@ public class ClientUI extends JFrame {
                                     System.out.println(message);
                                 }
                                 client.sendMessage(message);
+                                logTextArea.append(message + "\n");
                             }
 
                             if (!key.reset()) {

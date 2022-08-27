@@ -80,14 +80,19 @@ public class ServerUI extends JFrame {
                 String line = logReader.nextLine();
                 if (line == "")
                     continue;
-                String[] data = line.split("#", 3);
-                String clientAddress = data[0];
-                String action = data[1];
-                Long date = Long.valueOf(data[2]);
-                record[index][0] = clientAddress;
-                record[index][1] = action;
-                record[index][2] = new Date(date);
-                index++;
+                try{
+                    String[] data = line.split("#", 3);
+                    String clientAddress = data[0];
+                    String action = data[1];
+                    String date = data[2];
+                    record[index][0] = clientAddress;
+                    record[index][1] = action;
+                    record[index][2] = date;
+                    index++;
+                }
+                catch (Exception ex){
+                    continue;
+                }
             }
             return record;
         } catch (FileNotFoundException exception) {

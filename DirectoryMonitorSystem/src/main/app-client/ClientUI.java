@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -18,16 +17,11 @@ public class ClientUI extends JFrame {
     private JPanel headerPanel;
     private JPanel bodyPanel;
     private JPanel footerPanel;
-    private JLabel serverAddressLabel;
-    private JTextField serverAddressTextField;
     private JButton connectToServerButton;
     private JLabel socketStateLabel;
-    private JButton monitorButton;
     private JTextField pathTextField;
-    private JScrollBar scrollBar1;
     private JTextArea logTextArea;
     private JLabel pathLabel;
-    private JLabel monitorLabel;
     private AsynchronousSocketChannel client;
     private static ClientUI instance;
 
